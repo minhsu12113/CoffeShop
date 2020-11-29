@@ -1,0 +1,12 @@
+F:\Study\CoffeShop\Business\bin\x64\Release\Business.dll.config
+F:\Study\CoffeShop\Business\bin\x64\Release\Business.dll
+F:\Study\CoffeShop\Business\bin\x64\Release\Business.pdb
+F:\Study\CoffeShop\Business\bin\x64\Release\EntityFramework.dll
+F:\Study\CoffeShop\Business\bin\x64\Release\EntityFramework.SqlServer.dll
+F:\Study\CoffeShop\Business\bin\x64\Release\EntityFramework.xml
+F:\Study\CoffeShop\Business\bin\x64\Release\EntityFramework.SqlServer.xml
+F:\Study\CoffeShop\Business\obj\x64\Release\Business.csprojAssemblyReference.cache
+F:\Study\CoffeShop\Business\obj\x64\Release\Business.csproj.CoreCompileInputs.cache
+F:\Study\CoffeShop\Business\obj\x64\Release\Business.csproj.CopyComplete
+F:\Study\CoffeShop\Business\obj\x64\Release\Business.dll
+F:\Study\CoffeShop\Business\obj\x64\Release\Business.pdb

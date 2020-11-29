@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E396439-A6F5-45C3-9578-F95660B86383}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonResources</RootNamespace>
+    <AssemblyName>CommonResources</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\2020-10-11_22-28-14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icons8-database-error-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\danger_hanger_triangle_traffic_cone-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\team.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\table %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\group-filled-persons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iron-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\black-star-silhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\starred.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\picnic-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pound-sterling.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\graph %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\talking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\coffee-table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\like.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\842da72567f199afc0e0.jpg" />
+    <Resource Include="Images\890bde8c1e58e006b949.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\nothumb370x300.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\1024px-No_image_available.jpg" />
+    <Content Include="Images\kisspng-warning-sign-vector-graphics-clip-art-traffic-sign-5b634272ee4436.007886881533231730976.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

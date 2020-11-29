@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3386AB89-C187-4DDA-98FC-0133F398997E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>CoffeShop</RootNamespace>
+    <AssemblyName>CoffeShop</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>8.0</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>8.0</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>burger_logo_preview__g33_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.7.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.7\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.2.0.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.2.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Converters\Base64ToImageSourceConverter.cs" />
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\ListViewIndexConvert.cs" />
+    <Compile Include="DataProvider\CoffeeShopContext.cs" />
+    <Compile Include="DataProvider\Interfaces\ICategoryRepository.cs" />
+    <Compile Include="DataProvider\Interfaces\IFoodRepository.cs" />
+    <Compile Include="DataProvider\Interfaces\IImageRepository.cs" />
+    <Compile Include="DataProvider\Interfaces\IRepository.cs" />
+    <Compile Include="DataProvider\Interfaces\IUnitOfWork.cs" />
+    <Compile Include="DataProvider\Interfaces\ITableRepository.cs" />
+    <Compile Include="DataProvider\Interfaces\IUserRepository.cs" />
+    <Compile Include="DataProvider\Repositories\CategoryRepository.cs" />
+    <Compile Include="DataProvider\Repositories\FoodsRepository.cs" />
+    <Compile Include="DataProvider\Repositories\ImageRepository.cs" />
+    <Compile Include="DataProvider\Repositories\Repository.cs" />
+    <Compile Include="DataProvider\Repositories\TableRepository.cs" />
+    <Compile Include="DataProvider\Repositories\UserRepository.cs" />
+    <Compile Include="DataProvider\UnitOfWork.cs" />
+    <Compile Include="DBHelper\DBSetting.cs" />
+    <Compile Include="Dependency\LengthChecker.cs" />
+    <Compile Include="Enums\ALL_ENUM.cs" />
+    <Compile Include="ExtentionCommon\MyExtention.cs" />
+    <Compile Include="Internationalization\StringResources.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\CategoryModel.cs" />
+    <Compile Include="Model\FoodModel.cs" />
+    <Compile Include="Model\ImageModel.cs" />
+    <Compile Include="Model\ResultHelper.cs" />
+    <Compile Include="Model\UI\ItemNavigate.cs" />
+    <Compile Include="Model\TableModel.cs" />
+    <Compile Include="Model\UserModel.cs" />
+    <Compile Include="Utility\CSGlobal.cs" />
+    <Compile Include="Utility\PasswordHelper.cs" />
+    <Compile Include="Utility\SizeManager.cs" />
+    <Compile Include="Utility\TextBoxService.cs" />
+    <Compile Include="Validations\MaxLengthRule.cs" />
+    <Compile Include="Validations\StringNotEmptyRule.cs" />
+    <Compile Include="Viewmodel\Base\BindableBase.cs" />
+    <Compile Include="Viewmodel\Base\CommandHelper.cs" />
+    <Compile Include="Viewmodel\Base\ICustomDialog.cs" />
+    <Compile Include="Viewmodel\Categorys\CategoryViewModel.cs" />
+    <Compile Include="Viewmodel\Categorys\CateroryAddOrUpdateViewModel.cs" />
+    <Compile Include="Viewmodel\ConfirmViewmodel.cs" />
+    <Compile Include="Viewmodel\FoodsTable\FoodsTableViewModel.cs" />
+    <Compile Include="Viewmodel\ErrorNotifyViewModel.cs" />
+    <Compile Include="Viewmodel\Food\FoodsAddOrUpdateViewModel.cs" />
+    <Compile Include="Viewmodel\Food\FoodViewModel.cs" />
+    <Compile Include="Viewmodel\Home\HomeViewmodel.cs" />
+    <Compile Include="Viewmodel\PagingViewmodel.cs" />
+    <Compile Include="View\Categorys\CategoryAddOrUpdateUC.xaml.cs">
+      <DependentUpon>CategoryAddOrUpdateUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomControl\PagingUC.xaml.cs">
+      <DependentUpon>PagingUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\ConfirmUC.xaml.cs">
+      <DependentUpon>ConfirmUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\ErrorNotifyDialogUC.xaml.cs">
+      <DependentUpon>ErrorNotifyDialogUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\WarningUC.xaml.cs">
+      <DependentUpon>WarningUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FoodsTable\AddOrUpdateFoodTabelUC.xaml.cs">
+      <DependentUpon>AddOrUpdateFoodTabelUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FoodsTable\FoodsTableUC.xaml.cs">
+      <DependentUpon>FoodsTableUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Foods\FoodsAddOrUpdateUC.xaml.cs">
+      <DependentUpon>FoodsAddOrUpdateUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Setting\SettingsUC.xaml.cs">
+      <DependentUpon>SettingsUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Statistics\StatisticsUC.xaml.cs">
+      <DependentUpon>StatisticsUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\User\UserUC.xaml.cs">
+      <DependentUpon>UserUC.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Internationalization\StringResource_EN.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Internationalization\StringResource_VI.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\GradientColor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\IScrollBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\IScrollThumbs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\SizeDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Categorys\CategoryAddOrUpdateUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Categorys\CategoryUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CustomControl\PagingUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Dialog\ConfirmUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Dialog\ErrorNotifyDialogUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Dialog\WaitingDialogUc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Dialog\WarningUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DisconnectedDatabaseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FoodsTable\AddOrUpdateFoodTabelUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FoodsTable\FoodsTableUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Foods\FoodsAddOrUpdateUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Foods\FoodsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Home\HomeUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InitializeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Viewmodel\DisconnectedDatabaseViewmodel.cs" />
+    <Compile Include="Viewmodel\InitViewmodel.cs" />
+    <Compile Include="Viewmodel\LoginViewmodel.cs" />
+    <Compile Include="Viewmodel\MainViewmodel.cs" />
+    <Compile Include="View\Categorys\CategoryUC.xaml.cs">
+      <DependentUpon>CategoryUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialog\WaitingDialogUc.xaml.cs">
+      <DependentUpon>WaitingDialogUc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DisconnectedDatabaseWindow.xaml.cs">
+      <DependentUpon>DisconnectedDatabaseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Foods\FoodsUC.xaml.cs">
+      <DependentUpon>FoodsUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Home\HomeUC.xaml.cs">
+      <DependentUpon>HomeUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InitializeWindow.xaml.cs">
+      <DependentUpon>InitializeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\Setting\SettingsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Statistics\StatisticsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\UserUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{67696231-1789-417F-AE0E-64392047CE06}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonResources\CommonResources.csproj">
+      <Project>{4e396439-a6f5-45c3-9578-f95660b86383}</Project>
+      <Name>CommonResources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="burger_logo_preview__g33_icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

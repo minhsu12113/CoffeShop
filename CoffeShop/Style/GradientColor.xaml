@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:CoffeShop.Style">
+    
+    <LinearGradientBrush x:Key="StyleGradient">
+        <GradientStop Color="#1AA0BB" Offset="0"/>
+        <GradientStop Color="#074571" Offset="0.5"/>
+        <GradientStop Color="#00223E" Offset="1"/>
+        <GradientStop Color="#005D7F" Offset="1.5"/>
+        <GradientStop Color="#04A0FF" Offset="2"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="StyleGradient1">
+        <GradientStop Color="#0191B6" Offset="0"/>
+        <GradientStop Color="#37BBCA" Offset="0.5"/>
+    </LinearGradientBrush>
+
+
+</ResourceDictionary>

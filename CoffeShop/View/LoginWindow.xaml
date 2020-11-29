@@ -1,0 +1,112 @@
+﻿<Window x:Class="CoffeShop.View.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CoffeShop.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:viewmodel="clr-namespace:CoffeShop.Viewmodel"    
+        xmlns:util="clr-namespace:CoffeShop.Utility"
+        Background="Transparent" ResizeMode="NoResize"
+        AllowsTransparency="True" WindowStyle="None"        
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextOptions.TextFormattingMode="Ideal" TextOptions.TextRenderingMode="Auto" 
+        TextElement.FontWeight="Regular" WindowStartupLocation="CenterScreen"
+        WindowState="{Binding StateWindow}" mc:Ignorable="d" Name="Login_Window" Title="LoginWindow" 
+        Height="{Binding HeightLoginWindow,Source={StaticResource SizeManager}}" 
+        Width="{Binding WidthLoginWindow,Source={StaticResource SizeManager}}">
+    <Window.DataContext>
+        <viewmodel:LoginViewmodel/>
+    </Window.DataContext>
+    <materialDesign:DialogHost IsOpen="{Binding IsOpenDialog}" DialogContent="{Binding DialogContent}">
+        <ContentControl>
+            <Border>
+                <i:Interaction.Triggers >
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding DragMoveWindowCMD}"  CommandParameter="{Binding ElementName=Login_Window}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Border.Background>
+                    <ImageBrush ImageSource="/CommonResources;component/Images/842da72567f199afc0e0.jpg" Stretch="Fill" />
+                </Border.Background>
+
+                <Grid>                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.3*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.3*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Grid.ColumnSpan="7" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                        <Button Foreground="White" Command="{Binding MiniMizedWindowCMD}" Background="Transparent" BorderBrush="Transparent">
+                            <materialDesign:PackIcon Kind="WindowMinimize" Width="Auto" Height="Auto"/>
+                        </Button>
+                        <Button Foreground="OrangeRed" Command="{Binding CloseWindowCMD}" Background="Transparent" BorderBrush="Transparent">
+                            <materialDesign:PackIcon Kind="Power" Width="Auto" Height="Auto"/> 
+                        </Button>
+                    </StackPanel>
+                    <materialDesign:Card Grid.Row="1" Grid.RowSpan="3" Grid.Column="2" Grid.ColumnSpan="3" UniformCornerRadius="19">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.8*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Source="/CommonResources;component/Images/890bde8c1e58e006b949.jpg" Stretch="Fill"/>
+                            <StackPanel Margin="15 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" >
+                                <TextBlock Text="{DynamicResource HELLO}" FontSize="{Binding FontSize34,Source={StaticResource SizeManager}}" Foreground="White" />
+                                <TextBlock Text="{DynamicResource WELLCOME}" FontSize="{Binding FontSize14,Source={StaticResource SizeManager}}" Foreground="White" TextWrapping="Wrap"/>
+                            </StackPanel>
+
+                            <Grid Grid.Row="1" Background="White">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.7*"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="0.5*"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="0.5*"/>
+                                    <RowDefinition Height="0.6*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="0.2*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{DynamicResource LOGIN}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="{Binding FontSize24,Source={StaticResource SizeManager}}" FontWeight="SemiBold"/>
+
+                                <TextBlock Grid.Row="1"  Grid.Column="1" FontSize="{Binding FontSize16,Source={StaticResource SizeManager}}" FontWeight="SemiBold" HorizontalAlignment="Left" Text="{DynamicResource USERNAME}"/>
+                                <TextBox Grid.Row="2" Text="{Binding CurrentUser.UserName}" FontSize="{Binding FontSize16,Source={StaticResource SizeManager}}" Grid.Column="1" VerticalContentAlignment="Bottom" materialDesign:HintAssist.Hint="{DynamicResource ENTER_USERNAME}"/>
+
+                                <TextBlock Grid.Row="3" Grid.Column="1" Margin="0 15 0 0"  FontSize="{Binding FontSize16,Source={StaticResource SizeManager}}" FontWeight="SemiBold" HorizontalAlignment="Left" Text="{DynamicResource PASSWORD}"/>
+                                <PasswordBox Grid.Row="4" Grid.Column="1" util:PasswordHelper.Attach="True" util:PasswordHelper.Password="{Binding CurrentUser.PassWord,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                                             FontSize="{Binding FontSize16,Source={StaticResource SizeManager}}" 
+                                             VerticalContentAlignment="Bottom" 
+                                             materialDesign:HintAssist.Hint="{DynamicResource ENTER_PASSWORD}"/>
+                                
+
+                                <CheckBox Grid.Row="5" Content="{DynamicResource REMEMBER_PASSWORD}" Grid.Column="1"  VerticalAlignment="Center"/>
+                                <Button Grid.Row="6" Grid.Column="1" IsDefault="True" Command="{Binding LoginCMD}" materialDesign:ShadowAssist.ShadowDepth="Depth3" Background="#FB718C" BorderBrush="#FB718C"  HorizontalAlignment="Center" Content="{DynamicResource LOGIN}"/>
+                                
+                                
+                            </Grid>
+
+                        </Grid>
+                    </materialDesign:Card>
+                    
+                </Grid>
+            </Border>          
+        </ContentControl>
+    </materialDesign:DialogHost>
+</Window>

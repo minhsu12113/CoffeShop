@@ -1,0 +1,204 @@
+﻿<UserControl x:Class="CoffeShop.View.Foods.FoodsUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoffeShop.View.Foods"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:paginguc="clr-namespace:CoffeShop.View.CustomControl"
+             xmlns:util="clr-namespace:CoffeShop.Utility"
+             xmlns:converter="clr-namespace:CoffeShop.Converters"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto" 
+             TextElement.FontWeight="Regular"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="Stl_btn_common" TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionMiniButton}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#13548A"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="Stl_packicon_edit" TargetType="materialDesign:PackIcon">
+            <Setter Property="Margin" Value="7"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="Kind" Value="Pencil"/>
+            <Setter Property="Foreground" Value="#13548A"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=btn_Edit,Path=IsMouseOver}" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="Stl_packicon_delete" TargetType="materialDesign:PackIcon">
+            <Setter Property="Margin" Value="7"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="Kind" Value="Pencil"/>
+            <Setter Property="Foreground" Value="#13548A"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=btn_Delete,Path=IsMouseOver}" Value="True">
+                    <Setter Property="Foreground" Value="White"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <converter:Base64ToImageSourceConverter x:Key="Base64ToImageSource"/>
+    </UserControl.Resources>
+    <materialDesign:DialogHost IsOpen="{Binding IsOpenDialog}" DialogContent="{Binding DialogContent}" OverlayBackground="Transparent">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!--#region [Header] -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="4" materialDesign:ButtonAssist.CornerRadius="5" Command="{Binding AddNewCMD}" Margin="15 5 10 0" HorizontalContentAlignment="Stretch" VerticalAlignment="Bottom">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Grid.Column="0" Kind="Add" VerticalAlignment="Center" HorizontalAlignment="Center" Width="Auto" Height="Auto"/>
+                        <TextBlock Grid.Column="1" Margin="5 0 0 0" Text="Thêm mới" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button>
+                <ItemsControl Grid.Column="0" Grid.ColumnSpan="4" ItemsSource="{Binding CategoryList}" Margin="4 0 0 0" VerticalAlignment="Bottom">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Margin="3" Content="{Binding Name}" FontWeight="SemiBold" FontSize="14" VerticalAlignment="Bottom"
+                                          Style="{StaticResource MaterialDesignFilterChipPrimaryCheckBox}" IsChecked="{Binding IsSelected}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding Path=DataContext.CheckedCategoryTagCMD, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" 
+                                                                               CommandParameter="{Binding}"/>
+                                    </i:EventTrigger>
+                                    <i:EventTrigger EventName="Unchecked">
+                                        <i:InvokeCommandAction Command="{Binding Path=DataContext.UnCheckedCategoryTagCMD, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" 
+                                                                               CommandParameter="{Binding}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </CheckBox>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <TextBox Grid.Column="5" FontSize="16" Text="{Binding SearchFoodContent,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialDesign:HintAssist.Hint="Tìm Kiếm"
+                         HorizontalAlignment="Stretch" VerticalContentAlignment="Bottom" Margin="5 5 17 5">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding SearchCMD}"/>
+                    </TextBox.InputBindings>
+                </TextBox>
+                <Button Grid.Column="5"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5 5 10 0"
+                        Content="{materialDesign:PackIcon Kind=Search}" Command="{Binding SearchCMD}">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="Gray"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="#13548A"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                
+            </Grid>
+            <!--#endregion-->
+            <!--#region [Foods List] -->
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Hidden">
+                <ItemsControl ItemsSource="{Binding FoodList}" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <materialDesign:TransitioningContent >
+                                <materialDesign:TransitioningContent.OpeningEffects >
+                                    <materialDesign:TransitionEffect Kind="FadeIn"/>
+                                    <materialDesign:TransitionEffect Kind="ExpandIn"/>
+                                </materialDesign:TransitioningContent.OpeningEffects>
+                                <materialDesign:Card Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left" Width="245" Height="360" UniformCornerRadius="10">
+                                    <materialDesign:Card.Style>
+                                        <Style TargetType="materialDesign:Card">
+                                            <Style.Triggers >
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth4"/>
+                                                    <Setter Property="BorderThickness" Value="1"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </materialDesign:Card.Style>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="0.5*"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Border Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" BorderThickness="0.4" BorderBrush="Silver" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"   CornerRadius="7 7 0 0">
+                                            <Border.Background>
+                                                <ImageBrush Stretch="UniformToFill" ImageSource="{Binding ImageData,Converter={StaticResource Base64ToImageSource}}"/>
+                                            </Border.Background>
+                                        </Border>
+                                        <TextBlock Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Text="{Binding Name}" TextWrapping="Wrap"
+                                                       FontSize="{Binding FontSize18,Source={StaticResource SizeManager}}" 
+                                                       Foreground="#13548A" Margin="5 15" FontWeight="SemiBold"  
+                                                       VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                                        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Price,StringFormat={}{0:0,000 (VND)}}" TextWrapping="Wrap"
+                                                       FontSize="{Binding FontSize14,Source={StaticResource SizeManager}}" 
+                                                       Foreground="#13548A" Margin="5 15" FontWeight="SemiBold"  
+                                                       VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                        <CheckBox Grid.Row="4" Margin="15 0 5 5" Content="Hết Hàng" FontSize="{Binding FontSize16,Source={StaticResource SizeManager}}" />
+                                        <StackPanel Grid.Row="4" Margin="5" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                            <Button Margin="5" Style="{StaticResource Stl_btn_common}" Name="btn_Edit" Command="{Binding Path=DataContext.EditCMD, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" 
+                                                                               CommandParameter="{Binding}">
+                                                <materialDesign:PackIcon Kind="Pencil" Style="{StaticResource Stl_packicon_edit}"/>
+                                            </Button>
+                                            <Button Margin="5" Style="{StaticResource Stl_btn_common}" Name="btn_Delete" Command="{Binding Path=DataContext.DeleteCMD, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" 
+                                                                               CommandParameter="{Binding}">
+                                                <materialDesign:PackIcon Kind="Delete" Style="{StaticResource Stl_packicon_delete}"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
+                                </materialDesign:Card>
+                            </materialDesign:TransitioningContent>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+            <!--#endregion-->
+            <!--#region [Paging] -->
+            <Grid Grid.Row="2">
+                <paginguc:PagingUC DataContext="{Binding PagingViewmodel}"/>
+            </Grid>
+            <!--#endregion-->
+
+        </Grid>
+    </materialDesign:DialogHost>
+</UserControl>

@@ -1,0 +1,225 @@
+﻿<UserControl x:Class="CoffeShop.View.Home.HomeUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoffeShop.View.Home"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:viewmodel="clr-namespace:CoffeShop.Viewmodel.Home"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto" 
+             TextElement.FontWeight="Regular"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Border" x:Key="StStyleHistoryPay">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#DEEFFD"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <materialDesign:TransitioningContent>
+        <materialDesign:TransitioningContent.OpeningEffects >
+            <materialDesign:TransitionEffect Kind="SlideInFromRight"/>
+        </materialDesign:TransitioningContent.OpeningEffects>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <materialDesign:Card UniformCornerRadius="20" Margin="10" Grid.Column="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Image Grid.Row="0" Margin="20 10 10 10" Source="/CommonResources;component/Images/graph (1).png" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Column="1" Foreground="#919CA1" Margin="10 0 0 0" Text="{DynamicResource SALES_REVENUE_TODAY}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="{Binding FontSize18,Source={StaticResource SizeManager}}" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Row="1" FontSize="{Binding FontSize32,Source={StaticResource SizeManager}}" Grid.Column="0" Grid.ColumnSpan="2" Foreground="Blue" Text="2,000,000(VND)" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+
+                    </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card UniformCornerRadius="20" Margin="10" Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Row="0" Margin="20 10 10 10" Stretch="Uniform" Source="/CommonResources;component/Images/talking.png" />
+                        <TextBlock Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top"  Text="29" HorizontalAlignment="Center" FontSize="{Binding FontSize32,Source={StaticResource SizeManager}}" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Column="1"  Text="{DynamicResource CUSTOMER}" Foreground="#919CA1" VerticalAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Left" FontSize="{Binding FontSize18,Source={StaticResource SizeManager}}" FontWeight="SemiBold"/>
+                       
+
+                    </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card UniformCornerRadius="20" Margin="10" Grid.Column="2" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="1" FontSize="{Binding FontSize32,Source={StaticResource SizeManager}}" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top"  Text="29/35" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Column="1" Margin="10 0 0 0" Text="{DynamicResource EMPTY_TABLE}" Foreground="#919CA1"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="{Binding FontSize18,Source={StaticResource SizeManager}}" FontWeight="SemiBold"/>
+                        <Image Grid.Row="0" Margin="20 10 10 10" Stretch="Uniform" Source="/CommonResources;component/Images/coffee-table.png" />
+
+                    </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card UniformCornerRadius="20" Margin="10" Grid.Column="3">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Row="0" Margin="20 10 10 10" Stretch="Uniform" Source="/CommonResources;component/Images/like.png" />
+                        <TextBlock Grid.Column="1" Margin="10 0 0 0" Foreground="#919CA1" HorizontalAlignment="Left" Text="{DynamicResource BEST_SELLER}" VerticalAlignment="Center" FontSize="{Binding FontSize18,Source={StaticResource SizeManager}}" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Row="1" FontSize="{Binding FontSize32,Source={StaticResource SizeManager}}" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="0" Margin="5" Grid.ColumnSpan="2" Foreground="#FFC107" Text="Coffee Sữa (90%)" HorizontalAlignment="Center"  FontWeight="SemiBold"/>                        
+                        
+                    </Grid>
+                </materialDesign:Card>               
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <materialDesign:Card UniformCornerRadius="20" Grid.Column="0" Grid.Row="0" BorderBrush="Silver" BorderThickness="1" Margin="10" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="{DynamicResource SALES_REVENUE_THIS_WEEK}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 10 25 0" FontSize="{Binding FontSize16, Source={StaticResource SizeManager}}" FontWeight="SemiBold"/>
+
+                        <lvc:CartesianChart Grid.Row="1" Margin="5" Series="{Binding SeriesCollectionRevanuByWeek}" LegendLocation="None" >
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="{DynamicResource DAY_OF_THE_WEEK}"  Labels="{Binding LabelsRevanuByWeek}">
+                                    <lvc:Axis.Separator>
+                                        <lvc:Separator Step="1" />
+                                    </lvc:Axis.Separator>
+                                </lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis  Title=" " LabelFormatter="{Binding FormatterRevanuByWeek}" Position="LeftBottom"/>
+                            </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+
+                    </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card UniformCornerRadius="20"  Grid.Column="0" Grid.Row="1" BorderBrush="Silver" BorderThickness="1" Margin="10" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="{DynamicResource BEST_SELLER_OF_THE_WEEK}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 10 25 0" FontSize="{Binding FontSize16, Source={StaticResource SizeManager}}" FontWeight="SemiBold"/>
+
+                        <lvc:CartesianChart Grid.Row="1" Margin="5" Series="{Binding SeriesCollectionTop10}" LegendLocation="None" >
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="{DynamicResource NAME}" Labels="{Binding LabelsTop10}" >
+                                    <lvc:Axis.Separator>
+                                        <lvc:Separator Step="1"/>
+                                    </lvc:Axis.Separator>
+                                </lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="{DynamicResource COUNT}" LabelFormatter="{Binding FormatterTop10}"/>
+                            </lvc:CartesianChart.AxisY>
+                        </lvc:CartesianChart>
+                    </Grid>
+                </materialDesign:Card>
+                <materialDesign:Card Grid.Column="1" Grid.Row="0" BorderBrush="Silver" BorderThickness="1" Margin="10" UniformCornerRadius="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="{DynamicResource REVENUE_VOLATILITY}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10 25 0" FontSize="{Binding FontSize16, Source={StaticResource SizeManager}}" FontWeight="SemiBold"/>
+                        <lvc:PieChart Grid.Row="1" LegendLocation="Bottom" Hoverable="False" >
+                            <lvc:PieChart.Series>
+                                <lvc:PieSeries Title="{DynamicResource THIS_WEEK}" Fill="#4098C8" Values="5000" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
+                                <lvc:PieSeries Title="{DynamicResource LAST_WEEK}" Fill="#52BCA8" Values="10000" DataLabels="True" LabelPoint="{Binding PointLabel}"/>
+                            </lvc:PieChart.Series>
+                        </lvc:PieChart>
+                    </Grid>                    
+                </materialDesign:Card>
+                <materialDesign:Card Grid.Column="1" Grid.Row="1" BorderBrush="Silver" BorderThickness="1" Margin="10" UniformCornerRadius="20">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="{DynamicResource RECENT_PAYMENT_HISTORY}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 10 25 0" FontSize="{Binding FontSize16, Source={StaticResource SizeManager}}" FontWeight="SemiBold"/>
+                       
+                        <ScrollViewer Margin="5 10 5 5 " Grid.Row="1" VerticalScrollBarVisibility="Hidden">
+                            <ItemsControl ItemsSource="{Binding PayMentHistory}" VerticalAlignment="Top">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border Margin="5" BorderBrush="Silver" BorderThickness="0.7" CornerRadius="7" Style="{StaticResource StStyleHistoryPay}">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image Grid.Column="0" Margin="15 5 5 5" HorizontalAlignment="Left" Width="29" Height="29" Source="C:\Users\SU\Downloads\invoices (1).png"/>
+                                                <TextBlock Grid.Column="1" Margin="0 0 35 0" Text="Bàn 1" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                <TextBlock Grid.Column="2" Text="100,000(VND)" FontWeight="SemiBold" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </ScrollViewer>
+                        
+                    </Grid>
+                </materialDesign:Card>
+
+            </Grid>
+        </Grid>
+    </materialDesign:TransitioningContent>
+</UserControl>

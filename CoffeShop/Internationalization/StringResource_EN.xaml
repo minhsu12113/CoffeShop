@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+    <sys:String x:Key="LOGIN">Login</sys:String>
+    <sys:String x:Key="CANCEL">Cancel</sys:String>
+    <sys:String x:Key="SAVE">Save</sys:String>
+    <sys:String x:Key="PLASE_WAITING">Please wait...</sys:String>
+
+
+
+    <!--#region [Disconnect Database View] -->
+    <sys:String x:Key="REASON_DISCONNECTED_SQL_SERVER">Cause of loss of connection with SQL Server</sys:String>
+    <sys:String x:Key="SERVICES_SQL_SERVER_STOPDED">Services SQL Server Stopded</sys:String>
+    <sys:String x:Key="COMPUTER_DONT_INSTALL_SQL_SERVER">The computer does not have SQL Server installed</sys:String>
+    <sys:String x:Key="SQL_SERVER_DISCONNECTED">Disconnected From SQL Server</sys:String>
+    <sys:String x:Key="PLEASE_SELECT_SERVER">Please Select Server</sys:String>
+    <sys:String x:Key="CONNECTED_TO_SERVER_SUCCES">Server connection [{0}] is successful, please click [Save] button to continue</sys:String>
+    <sys:String x:Key="CONNECTED_TO_SERVER_ERROR">Server Connection [{0}] failed please choose another server and make sure your computer has been installed with SQL Server (2019)</sys:String>
+
+    <!--#endregion [End Disconnect Database View]-->
+</ResourceDictionary>

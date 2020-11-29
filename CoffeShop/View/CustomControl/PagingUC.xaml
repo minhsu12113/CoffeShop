@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="CoffeShop.View.CustomControl.PagingUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CoffeShop.View.CustomControl"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+
+            <Button Margin="2" Command="{Binding PreviousPageCMD}" IsEnabled="{Binding IsEnableBtnPreviousPage}" Content="{materialDesign:PackIcon Kind=ChevronDoubleLeft}" Background="Transparent" BorderBrush="#13548A" Foreground="#13548A" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"/>
+            <Button Margin="2" Content="1" Command="{Binding GotoFirstNumberCMD}" Visibility="{Binding VisibilityDotsDown,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="#13548A" Background="Transparent" BorderBrush="#13548A" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"/>
+            <Button Margin="2" Content="{materialDesign:PackIcon Kind=DotsHorizontal}" Visibility="{Binding VisibilityDotsDown,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" IsEnabled="False" Foreground="#13548A" Background="Transparent" BorderBrush="#13548A" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"/>
+
+            <ItemsControl ItemsSource="{Binding PageList}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Margin="2"  Content="{Binding PageNumber}" Background="{Binding Background}"
+                                Foreground="{Binding Foreground}" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
+                                Command="{Binding Path=DataContext.SelectPageCMD, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}"
+                                CommandParameter="{Binding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <Button Margin="2" Visibility="{Binding VisibilityDotsUp}" Content="{materialDesign:PackIcon Kind=DotsHorizontal}" IsEnabled="False" Foreground="#13548A" Background="Transparent" BorderBrush="#13548A" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"/>
+            <Button Margin="2" Command="{Binding NextPageCMD}" IsEnabled="{Binding IsEnableBtnNextPage}" Content="{materialDesign:PackIcon Kind=ChevronDoubleRight}" Background="Transparent" BorderBrush="#13548A" Foreground="#13548A" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"/>
+
+            <TextBox Margin="7" Text="{Binding GotoNumberPage}" Name="tbx_Goto" Foreground="#13548A" VerticalContentAlignment="Top" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"/>
+            <Button Margin="7" Command="{Binding GotoPageCMD}" CommandParameter="{Binding ElementName=tbx_Goto,Path=Text}" Content="{materialDesign:PackIcon Kind=ArrowRight}" Width="Auto" Height="Auto" Background="Transparent" Foreground="#13548A"/>
+
+            <GroupBox Style="{x:Null}">
+                <GroupBox.Header>
+                    <TextBlock Text="Thông tin dữ liệu" FontWeight="SemiBold"/>
+                </GroupBox.Header>
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Tổng số trang: "/>
+                        <TextBlock Text="{Binding TotalCountPage}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Tổng số dữ liệu: "/>
+                        <TextBlock Text="{Binding TotalCountItem}"/>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

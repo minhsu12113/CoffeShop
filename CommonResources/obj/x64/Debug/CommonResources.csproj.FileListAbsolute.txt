@@ -1,0 +1,7 @@
+F:\Study\CoffeShop\CommonResources\bin\x64\Debug\CommonResources.dll
+F:\Study\CoffeShop\CommonResources\bin\x64\Debug\CommonResources.pdb
+F:\Study\CoffeShop\CommonResources\obj\x64\Debug\CommonResources.g.resources
+F:\Study\CoffeShop\CommonResources\obj\x64\Debug\CommonResources.csproj.CoreCompileInputs.cache
+F:\Study\CoffeShop\CommonResources\obj\x64\Debug\CommonResources.dll
+F:\Study\CoffeShop\CommonResources\obj\x64\Debug\CommonResources.pdb
+F:\Study\CoffeShop\CommonResources\obj\x64\Debug\CommonResources.csprojAssemblyReference.cache

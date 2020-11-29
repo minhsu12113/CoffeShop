@@ -1,0 +1,83 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!--#region [Common]-->
+    <sys:String x:Key="NONE">None</sys:String>
+    <sys:String x:Key="LOGIN">Đăng nhập</sys:String>
+    <sys:String x:Key="ENTER_USERNAME">Nhập tên tài khoản</sys:String>
+    <sys:String x:Key="ENTER_PASSWORD">Nhập mật khẩu</sys:String>
+    <sys:String x:Key="LOGOUT_CONFIRM">Bạn có muốn đăng xuất phần mềm hay không?</sys:String> 
+    <sys:String x:Key="CAMERA">Camera</sys:String>
+    <sys:String x:Key="HARD_DISK">Ổ Cứng</sys:String>   
+    <sys:String x:Key="SAVE">Lưu</sys:String>
+    <sys:String x:Key="PLASE_WAITING">Vui lòng chờ...</sys:String>
+    <sys:String x:Key="NAME">Tên</sys:String>
+    <sys:String x:Key="COUNT">Số Lượng</sys:String>
+    <sys:String x:Key="USERNAME">Tên đăng nhập</sys:String>
+    <sys:String x:Key="PASSWORD">Mật khẩu</sys:String>
+    <sys:String x:Key="HELLO">Xin Chào</sys:String>
+    <sys:String x:Key="REMEMBER_PASSWORD">Nhớ mật khẩu</sys:String>
+    <sys:String x:Key="WELLCOME">Chào mừng bạn đến với ứng dụng quản lý quán Coffee</sys:String>
+    <sys:String x:Key="ERROR_LOGIN">Sai mật khẩu hoặc tài khoản</sys:String>
+    <sys:String x:Key="OCCUR_ERROR">Đã xảy ra lỗi</sys:String>
+    <sys:String x:Key="CLOSE">Đóng</sys:String>
+    <!--#endregion [End Common]-->
+
+    <!--#region [Init View] -->
+    <sys:String x:Key="TITLE_APP_NAME">Phần Mềm Quản Lý CoffeShop</sys:String>
+    <sys:String x:Key="INITIALIZING">Đang Khởi Tạo......</sys:String>
+    <sys:String x:Key="POSSIBLE_SERVER_ERROR">Tần Suất Lỗi Của Các Server</sys:String>
+    <sys:String x:Key="OVERVIEW_DATA_RECORD">Tổng Quan Dữ Liệu Ghi Hình</sys:String>
+    <!--#endregion [End Init View]-->
+
+    <!--#region [Disconnect Database View] -->
+    <sys:String x:Key="REASON_DISCONNECTED_SQL_SERVER">Các Nguyên Nhân Gây Mất Kết Nối Với SQL Server</sys:String>
+    <sys:String x:Key="SERVICES_SQL_SERVER_STOPDED">Services của SQL Server đã ngưng hoạt động</sys:String>
+    <sys:String x:Key="COMPUTER_DONT_INSTALL_SQL_SERVER">Máy tính chưa cài đặt SQL Server</sys:String>
+    <sys:String x:Key="SQL_SERVER_DISCONNECTED">Mất Kết Nối Với SQL Server</sys:String>
+    <sys:String x:Key="PLEASE_SELECT_SERVER">Vui Lòng Chọn Server</sys:String>
+    <sys:String x:Key="CONNECTED_TO_SERVER_SUCCES">Kết nối Server [{0}] thành công vui lòng nhấn nút [Lưu] để tiếp tục</sys:String>
+    <sys:String x:Key="CONNECTED_TO_SERVER_ERROR">Kết Nối Server [{0}] thất bại vui lòng chọn Server khác và chắc rằng máy tính của bạn đã được cài đặt SQL Server(2019)</sys:String>
+    
+    <!--#endregion [End Disconnect Database View]-->
+
+    <!--#region [Navigate] -->
+    <sys:String x:Key="HOME">Trang chủ</sys:String>
+    <sys:String x:Key="DASHBOARD">Bảng điều khiển</sys:String>
+    <sys:String x:Key="FOODS">Thức ăn</sys:String>
+    <sys:String x:Key="CATEGORY">Danh mục</sys:String>
+    <sys:String x:Key="STATISTICS">Thống kê</sys:String>
+    <sys:String x:Key="USER">Tài khoản</sys:String>
+    <sys:String x:Key="SETTING">Cài Đặt</sys:String>
+    <!--#endregion [End Navigate]-->
+
+    <!--#region [Drashboard] -->
+    <sys:String x:Key="SALES_REVENUE_TODAY">Doanh Thu Hôm Nay</sys:String>
+    <sys:String x:Key="SALES_REVENUE_THIS_WEEK">Doanh Thu Hôm Nay</sys:String>
+    <sys:String x:Key="SALES">Doanh Thu</sys:String>
+    <sys:String x:Key="CUSTOMER">Khách Hàng</sys:String>
+    <sys:String x:Key="EMPTY_TABLE">Bàn Còn Trống</sys:String>
+    <sys:String x:Key="BEST_SELLER">Bán Chạy Nhất</sys:String>
+    <sys:String x:Key="BEST_SELLER_OF_THE_WEEK">Bán Chạy Trong Tuần</sys:String>
+    <sys:String x:Key="DAY_OF_THE_WEEK">Ngày Trong Tuần</sys:String>
+    <sys:String x:Key="REVENUE_VOLATILITY">Biến Động Doanh Thu</sys:String>
+    <sys:String x:Key="LAST_WEEK">Tuần Trước</sys:String>
+    <sys:String x:Key="THIS_WEEK">Tuần Này</sys:String>
+    <sys:String x:Key="RECENT_PAYMENT_HISTORY">Lịch Sử Thanh Toán Gần Đây</sys:String>
+
+    <!--#endregion [End Drashboard]-->
+
+    <!--#region [Fooods] -->
+    <sys:String x:Key="CATEGORY_ADD_NEW">Thêm mới thức ăn</sys:String>
+    <sys:String x:Key="IMAGE">Hình Ảnh</sys:String>
+    <sys:String x:Key="FOOD_NAME">Tên món ăn</sys:String>
+    <sys:String x:Key="PRICE">Giá</sys:String>
+    <sys:String x:Key="NOTE">Ghi Chú</sys:String>
+    <!--#endregion-->
+
+    <!--#region [Category] -->
+    <sys:String x:Key="CATEGORY_CONFIRM_DELETE">Bạn có muốn xóa [{0}] không?</sys:String>
+    <!--#endregion-->
+
+</ResourceDictionary>

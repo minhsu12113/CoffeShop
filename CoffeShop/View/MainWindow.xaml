@@ -1,0 +1,117 @@
+﻿<Window x:Class="CoffeShop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:CoffeShop.Viewmodel"
+        xmlns:local="clr-namespace:CoffeShop"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:model="clr-namespace:CoffeShop.Model.UI"
+        xmlns:converter="clr-namespace:CoffeShop.Converters"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        WindowState="{Binding StateWindow}"
+        Height="{Binding HeightMainWindow,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,Source={StaticResource SizeManager}}"
+        Width="{Binding WidthMainWindow,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged,Source={StaticResource SizeManager}}"
+        Background="Transparent"
+        AllowsTransparency="True" ResizeMode="NoResize"
+        WindowStyle="None" Name="Main_Window"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto" 
+        TextElement.FontWeight="Regular"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext >
+        <viewmodel:MainViewmodel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <converter:BoolToVisibilityConverter x:Key="BooleanToVisibility"/>
+    </Window.Resources>
+    <materialDesign:DialogHost Background="Transparent" OverlayBackground="Transparent"  IsOpen="{Binding IsOpenDialog}" DialogContent="{Binding DialogContent}" >
+        <materialDesign:Card UniformCornerRadius="29" Margin="1" Background="#F0F2F5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.4*"/>
+                    <ColumnDefinition Width="7*"/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Grid.Column="0" UniformCornerRadius="29" Margin="15" Background="#3326AE">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding DragmoveWindowCMD}" CommandParameter="{Binding ElementName=Main_Window}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <ItemsControl Grid.Row="1" ItemsSource="{Binding Source={x:Static model:ItemNavigate.ListItemNavigate}}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Margin="17 5 17 5" Command="{Binding Path=DataContext.NavigateToViewCMD, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}"
+                                        CommandParameter="{Binding}" materialDesign:ButtonAssist.CornerRadius="17"
+                                        Foreground="{Binding ForegroundItem}" BorderBrush="{Binding BackgoundItem}" 
+                                        Background="{Binding BackgoundItem}" HorizontalContentAlignment="Stretch" 
+                                        VerticalContentAlignment="Center" Height="{Binding HeightBtnNavigate,Source={StaticResource SizeManager}}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <materialDesign:PackIcon Grid.Column="0" Kind="{Binding Icon}" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                                                 Width="{Binding WidthIconNavigate,Source={StaticResource SizeManager}}" 
+                                                                 Height="{Binding HeightIconNavigate,Source={StaticResource SizeManager}}"/>
+                                            <TextBlock Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Content}" Foreground="{Binding ForegroundItem}"  VerticalAlignment="Center" HorizontalAlignment="Left" 
+                                                   FontSize="{Binding FontSize16,Source={StaticResource SizeManager}}"/>
+                                            <materialDesign:TransitioningContent HorizontalAlignment="Left" Visibility="{Binding StatePointer}" OpeningEffect="{materialDesign:TransitionEffect SlideInFromTop, Duration=0:0:0.5}">
+                                                <Border Width="5" Background="#3326AE" CornerRadius="4"/>
+                                            </materialDesign:TransitioningContent>
+                                        </Grid>
+                                    </Button>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </materialDesign:Card>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.05*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--#region [Header] -->
+                    <Grid Grid.Row="0" VerticalAlignment="Center" Background="Transparent" HorizontalAlignment="Stretch">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding DragmoveWindowCMD}" CommandParameter="{Binding ElementName=Main_Window}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <StackPanel Margin="0 5 10 0" Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button Background="Transparent" BorderBrush="Transparent" Foreground="Gray" Command="{Binding MinimizedWindowCMD}">
+                                <materialDesign:PackIcon Kind="WindowMinimize" Width="Auto" Height="Auto" Margin="2"/>
+                            </Button>
+                            <Button Background="Transparent" BorderBrush="Transparent" Foreground="OrangeRed" Command="{Binding ShutdownAppCMD}">
+                                <materialDesign:PackIcon Kind="Power" Width="Auto" Height="Auto" Margin="2"/>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                    <!--#endregion [End Header]-->
+
+                    <ContentControl Grid.Row="1" Margin="5 5 15 20" Content="{Binding CurrenView}" />
+                   
+                </Grid>
+                <ProgressBar Height="9" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Bottom" IsIndeterminate="True" Foreground="Wheat"
+                             Visibility="{Binding IsLoadSomeThing,UpdateSourceTrigger=PropertyChanged,Converter={StaticResource BooleanToVisibility}}"/>
+            </Grid>
+        </materialDesign:Card>
+    </materialDesign:DialogHost>
+    
+      
+</Window>
